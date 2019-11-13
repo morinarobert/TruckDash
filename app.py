@@ -1,6 +1,6 @@
 import os
 import flask, flask_socketio, flask_sqlalchemy
-import psycopg2, send
+import psycopg2
 
 
 app = flask.Flask(__name__)
