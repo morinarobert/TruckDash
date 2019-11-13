@@ -12,7 +12,10 @@ db = flask_sqlalchemy.SQLAlchemy(app)
 
 @app.route('/')
 def hello():
-
+    #messages = models.Message.query.all()
+    #html = ['<li>' + m.text + '</li>' for m in messages]
+    #return '<ul>' + ''.join(html) + '</ul>'
+    
     
     return flask.render_template('index.html')
 
