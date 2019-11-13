@@ -35,17 +35,12 @@ export class Chat extends React.Component {
     
     handleSubmit(event) {
         event.preventDefault();
-        console.log( 'Username: ', this.state.username);
-        console.log( 'Message: ', this.state.message);
         let usrmessage = this.state.message;
-        let usrnme = this.state.username;
-        Socket.emit('message',  {
+        // let usrnme = this.state.username;
+        Socket.emit('new message',  {
             'Message': usrmessage
         });
         console.log('Sent a messages to server!');
-        var li = usrnme + ": "+ usrmessage;
-        document.getElementById('msg').value = "";
-        document.getElementById('spanResult').textContent = li;
         
         
         
@@ -62,13 +57,6 @@ export class Chat extends React.Component {
         return (
             
             <form>
-            <ul>
-            <span id="spanResult">
-
-    </span>
-    </ul>
-            
-            
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <div>

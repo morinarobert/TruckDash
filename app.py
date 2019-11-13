@@ -1,6 +1,6 @@
 import os
 import flask, flask_socketio, flask_sqlalchemy
-import psycopg2
+import psycopg2, send
 
 
 app = flask.Flask(__name__)
@@ -30,21 +30,17 @@ def on_disconnect():
         'data': 'Disconnected'
     })
     
-@socketio.on('message')
-def handleMessage(msg):
-    u_message = msg['Message']
-    
-    print('Message: ' + u_message)
-    socketio.emit(u_message, broadcast=True)
+@socketio.on('new message')
+def handleMessage(data):
+    u_message = data['Message']
     models.db.session.add(u_message)
     models.db.session.commit()
-
+    print('Message: ' + u_message)
+    socketio.emit('message received', {
+        'Message': u_message
+    })
     
-@socketio.on('new number')
-def on_new_number(data):
-    print ("Got an event for new number with data:", data)
-    rand_number = data['number']
-    socketio.emit(rand_number, broadcast=True)
+
 
 if __name__ == '__main__':   
     socketio.run(

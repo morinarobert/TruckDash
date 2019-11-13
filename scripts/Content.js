@@ -10,22 +10,23 @@ export class Content extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            'numbers': []
+            'messages': []
         };
     }
     
     componentDidMount() {
-        Socket.on('number received', (data) => {
+        Socket.on('message received', (data) => {
             this.setState({
-                'number_received': data['number']
+                'message_received': data['Message']
             });
-        })
+        });
     }
    
 
     render() {
-        
+        let my_message = this.state.message_received;
         return (
+            
             <body>
                 <div>
                     <h1> Truck Dash </h1>
@@ -35,6 +36,8 @@ export class Content extends React.Component {
                         <li>Cheese Burger</li>
                         <li>Hot Dog</li>
                     </ul>
+                    
+                    <ul> {my_message} </ul>
                     <Chat />
                    
                 </div>
