@@ -70,7 +70,7 @@ export class Chat extends React.Component {
                         />
                     </div>
                     <div>
-                     <label>Message</label>
+                     <label>My Order: </label>
                         <textarea   id= "msg"
                         value= {this.state.message} 
                                     onChange= {this.handleMessageChange} 
