@@ -27,7 +27,7 @@ export class Content extends React.Component {
         let my_message = this.state.message_received;
         return (
             
-            <body style="overflow:hidden;" background="static/.jpg">
+            <body style="overflow:hidden;" background="static/53522125-painted-food-truck-on-a-white-background-street-food-delivery-vehicle-.jpg">
                 <div>
                     <h1> Truck Dash </h1>
                     <h2> Food Truck Menu </h2>
