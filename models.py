@@ -17,5 +17,5 @@ class Message(db.Model):
         #self.username = user_name
         
     def __repr__(self):
-        # return '<Message text: %s>' % self.text 
-        return "<li> %s: '%s'</li>" % (self.text )
+        return '<Message text: %s>' % self.text 
+        # return "<li> %s: '%s'</li>" % (self.text )

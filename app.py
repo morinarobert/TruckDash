@@ -1,14 +1,14 @@
 import os
 import flask, flask_socketio, flask_sqlalchemy
-import psycopg2, send
+import psycopg2
 
 
 app = flask.Flask(__name__)
 socketio = flask_socketio.SocketIO(app)
 
 import models
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://mkm:123@localhost/postgres'  
-db = flask_sqlalchemy.SQLAlchemy(app)
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://mkm:123@localhost/postgres'  
+# db = flask_sqlalchemy.SQLAlchemy(app)
 
 @app.route('/')
 def hello():
@@ -18,10 +18,20 @@ def hello():
 
 @socketio.on('connect') 
 def on_connect():
+    messages = models.Message.query.all()
+    print(messages)
+    array = []
+    for m in messages:
+        array.append(
+            [m.text]
+        )
+    
+    
     print('Someone connected!')
-    flask_socketio.emit('update', {
-        'data': 'Got your connection!'
-    })
+    print(array)
+    socketio.emit('message received',{
+     'data': array
+    }, broaadcast=True)
     
 @socketio.on('disconnect')
 def on_disconnect():
@@ -33,7 +43,8 @@ def on_disconnect():
 @socketio.on('new message')
 def handleMessage(data):
     u_message = data['Message']
-    models.db.session.add(u_message)
+    u2_message = models.Message(data['Message'])
+    models.db.session.add(u2_message)
     models.db.session.commit()
     print('Message: ' + u_message)
     socketio.emit('message received', {

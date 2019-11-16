@@ -24,7 +24,7 @@ export class Content extends React.Component {
    
 
     render() {
-        let my_message = this.state.message_received;
+        //let my_message = this.state.message_received;
         return (
             
             <body>
@@ -37,7 +37,7 @@ export class Content extends React.Component {
                         <li>Hot Dog</li>
                     </ul>
                     
-                    <ul> {my_message} </ul>
+                   
                     <Chat />
                    
                 </div>
