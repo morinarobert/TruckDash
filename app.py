@@ -32,7 +32,7 @@ def on_connect():
     
     print('Someone connected!')
     print(array)
-    socketio.emit('message received',{
+    socketio.emit('message array',{
      'data': array
     }, broaadcast=True)
     

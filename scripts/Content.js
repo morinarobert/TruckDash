@@ -20,14 +20,23 @@ export class Content extends React.Component {
                 'message_received': data['Message']
             });
         });
+    
+        Socket.on('message array', (data) => {
+            this.setState({
+                'message_array': data['data']
+            });
+        });
+        
+        
     }
-   
+    
 
     render() {
-        //let my_message = this.state.message_received;
+        let my_message = this.state.message_received;
+        let my_array = this.state.message_array;
         return (
             
-            <body style="overflow:hidden;" background="static/53522125-painted-food-truck-on-a-white-background-street-food-delivery-vehicle-.jpg">
+            <body>
                 <div>
                     <h1> Truck Dash </h1>
                     <h2> Food Truck Menu </h2>
@@ -37,7 +46,8 @@ export class Content extends React.Component {
                         <li>Hot Dog</li>
                     </ul>
                     
-                   
+                    <ul> {my_array} </ul>
+                    <ul> {my_message} </ul>
                     <Chat />
                    
                 </div>
