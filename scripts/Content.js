@@ -1,9 +1,6 @@
-    
-import * as React from 'react';
+ import * as React from 'react';
 import { Socket } from './Socket';
-import { Button } from './Button';
 import { Chat } from './Chat';
-
 
 
 export class Content extends React.Component {
@@ -34,8 +31,9 @@ export class Content extends React.Component {
     render() {
         let my_message = this.state.message_received;
         let my_array = this.state.message_array;
+        
         return (
-            
+
             <body>
                 <div>
                     <h1> Truck Dash </h1>
@@ -46,10 +44,13 @@ export class Content extends React.Component {
                         <li>Hot Dog</li>
                     </ul>
                     
-                    <ul> {my_array} </ul>
-                    <ul> {my_message} </ul>
+                    <ul>{my_array}</ul>
+                    
                     <Chat />
-                   
+
+                </div>
+                <div>
+                
                 </div>
             </body>
         );
