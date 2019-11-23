@@ -35,7 +35,7 @@ export class Content extends React.Component {
         return (
 
             <body>
-                <div>
+                <div style={{ backgroundColor: "yellow", border: "22px solid blue"}}>
                     <h1> Truck Dash </h1>
                     <h2> Food Truck Menu </h2>
                     <ul>
@@ -46,11 +46,11 @@ export class Content extends React.Component {
                     
                     <ul>{my_array}</ul>
                     
-                    <Chat />
+                    
 
                 </div>
-                <div>
-                
+                <div style={{ backgroundColor: "white", border: "22px black"}}>
+                <Chat />
                 </div>
             </body>
         );
