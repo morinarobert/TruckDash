@@ -1,7 +1,7 @@
 import os
 import flask
 import flask_socketio
-import models
+import models, random
 import app
 
 
@@ -10,15 +10,18 @@ class Chatbot():
         return 
     def response(self, message):
         if message == '!! help':
-            response = 'Help Topics: !! menu, !! status, !! order, !! cancel'
+            response = 'Helpful Topics: !! menu, !! status, !! order, !! cancel, !! random'
         elif message == '!! menu':
-            response = 'Welcome to Truck Dash! The menu for today is: (1) Chicken and Waffles (2) Shrimp and grits  (3) Turkey wrap'
+            response = 'Welcome to Truck Dash! The menu for today is: (1) Fries' "\n" 
+            '(2) Sweet Potatoe Fries' "\n" '(3) Burger' "\n" '(4) Impossible Burger (5)' "\n" '(5) Hotdog (Glizzy)' 
         elif message == '!! status':
             response = 'Here is your order status: COMPLETED'
         elif message == '!! order':
-            response = 'Here is your order: Chicken and Waffles'
-        elif message == '!! cancel':
-            response = 'Would you like to cancel your order? y/n'
+            response = 'Here is your order: Impossible Burger & Sweet Potatoe Fries'
+        elif message == '!!random':
+            chatbot_responses=['We will take over the wor...ERROR!', 'World Dominati..Hello There!', 'Your order is now submitted!', 'Order Canceled']
+            chatbot_message = chatbot_responses[random.randint(0, len(chatbot_responses))]
+            
         else:
-            response = "Invalid response. Valid responses are !! menu, !! status, !! order, !! cancel"
+            chatbot_message = "I don't understand...Try '!!help'"
         return response
