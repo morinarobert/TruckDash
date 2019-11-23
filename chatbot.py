@@ -3,7 +3,6 @@ import flask
 import flask_socketio
 import models
 import app
-import random
 
 
 class Chatbot():
