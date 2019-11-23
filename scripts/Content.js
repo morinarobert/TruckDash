@@ -40,8 +40,13 @@ export class Content extends React.Component {
                     <h2> Food Truck Menu </h2>
                     <ul>
                         <li>Fries</li>
+                        <li>Sweet Potatoe Fries</li>
                         <li>Cheese Burger</li>
                         <li>Hot Dog</li>
+                        <li>Impossible Burger</li>
+                        <li>Bottled Water</li>
+                        <li>Soft Drink Can</li>
+                        <li>Ice Tea/ Half & Half</li>
                     </ul>
                     
                     <ul>{my_array}</ul>
