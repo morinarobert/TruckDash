@@ -33,12 +33,12 @@ export class Content extends React.Component {
         let my_array = this.state.message_array;
         
         return (
-
+            <html>
             <body>
                 <div style={{ backgroundColor: "yellow", border: "22px solid blue"}}>
                     <h1> Truck Dash </h1>
                     <h2> Food Truck Menu </h2>
-                    <ul>
+                    <ul class="columns" data-columns="2">
                         <li>Fries</li>
                         <li>Sweet Potatoe Fries</li>
                         <li>Cheese Burger</li>
@@ -51,13 +51,22 @@ export class Content extends React.Component {
                     
                     <ul>{my_array}</ul>
                     
-                    
+               
+               <button onclick="myFunction()">Click me</button>
+               <script language="JavaScript">
+               function myFunction()
+               {
+                   alert ("Order is now Submitted!")
+               }
+               </script>
+                
 
                 </div>
                 <div style={{ backgroundColor: "white", border: "22px black"}}>
                 <Chat />
                 </div>
             </body>
+            </html>
         );
     }
 }
@@ -73,3 +82,4 @@ export class Content extends React.Component {
 //         );
 //     }
 // }
+//                    <ul class="columns" data-columns="2">
