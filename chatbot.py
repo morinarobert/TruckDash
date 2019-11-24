@@ -18,6 +18,10 @@ class Chatbot():
             response = 'Here is your order status: COMPLETED'
         elif message == '!! order':
             response = 'Here is your order: Impossible Burger & Sweet Potatoe Fries'
+        elif message == '!! Submit':
+            repsponse = 'Your order is now sumbitted!!'
+        elif message == '!! Cancel':
+            response = 'Your order is now canceled :('
         elif message == '!!random':
             chatbot_responses=['We will take over the wor...ERROR!', 'World Dominati..Hello There!', 'Your order is now submitted!', 'Order Canceled']
             chatbot_message = chatbot_responses[random.randint(0, len(chatbot_responses))]
