@@ -28,13 +28,12 @@ def on_connect():
         array.append(
             [m.text]
         )
-    
-    
     print('Someone connected!')
     print(array)
     socketio.emit('message array',{
      'data': array
     }, broaadcast=True)
+    
     
 @socketio.on('disconnect')
 def on_disconnect():
@@ -47,6 +46,9 @@ def on_disconnect():
 def handleMessage(data):
     u_message = data['Message']
     u2_message = models.Message(data['Message'])
+    #If statement for chatbot here 
+    
+    
     models.db.session.add(u2_message)
     models.db.session.commit()
     print('Message: ' + u_message)
