@@ -14,7 +14,7 @@ class Chatbot():
         elif message == '!! Begin':
             response = 'Welcome to Truck Dash! Please Pick a Food Truck to order food from:' "\n" '(1) Dangerously Delicious Pies' "\n" 
             '(2) Korean BBQ Taco Box' "\n" '(3) The Orange Cow' "\n" '(4) District Barbecue' "\n" '(5) Capital Chicken and Waffles'
-        elif message == '1':
+        elif message == '!! 1':
             response = 'Dangerously Delicious Pies: ' 'PLEASE CHOOSE FOOD OPTIONS FROM THE MENU' "\n" "\n" 'Banana Cream' "\n" 'Blueberry Pancake Pie (BPP)' 
             "\n" 'Baltimore Bomb' "\n" 'Elvis' "\n" 'Pecan' "\n" 'Apple Crump' "\n" '.....'
         elif message == '2':

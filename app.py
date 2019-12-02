@@ -1,6 +1,7 @@
 import os
 import flask, flask_socketio, flask_sqlalchemy
 import psycopg2
+import chatbot
 
 
 app = flask.Flask(__name__)
@@ -22,21 +23,26 @@ def hello():
 @socketio.on('connect') 
 def on_connect():
     messages = models.Message.query.all()
-    print(messages)
     array = []
     for m in messages:
         array.append(
             [m.text]
         )
     print('Someone connected!')
-    print(array)
+    # print(array)
     socketio.emit('message array',{
      'data': array
     }, broaadcast=True)
     
+
+    
+
+    
     
 @socketio.on('disconnect')
 def on_disconnect():
+    models.Message.query.delete()
+    models.db.session.commit()
     print('Someone disconnected!')
     flask_socketio.emit('update', {
         'data': 'Disconnected'
@@ -48,13 +54,32 @@ def handleMessage(data):
     u2_message = models.Message(data['Message'])
     #If statement for chatbot here 
     
+    current_message = data['Message']
+
+    #If it is a url, send data to the client 
+    if current_message[:2] == '!!':
+        called_class = chatbot.Chatbot()
+        final_response = called_class.response(current_message)
+        new_message = models.Message(final_response)
+        models.db.session.add(new_message)
+        models.db.session.commit()
+   
+    else:
+        info = models.Message(data['Message'])
+        models.db.session.add(info)
+        models.db.session.commit()
+    return on_connect()
     
-    models.db.session.add(u2_message)
-    models.db.session.commit()
-    print('Message: ' + u_message)
-    socketio.emit('message received', {
-        'Message': u_message
-    })
+    
+    
+    
+    
+    # models.db.session.add(u2_message)
+    # models.db.session.commit()
+    # print('Message: ' + u_message)
+    # socketio.emit('message received', {
+    #     'Message': u_message
+    # })
     
 
 

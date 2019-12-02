@@ -59,22 +59,9 @@ export class Chat extends React.Component {
             <form>
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
-                        
-                        <ul id="messages"></ul>
-                        <label>Username</label>
-                     <input  type = "text"
-                                id= "ur"
-                             value= {this.state.username}
-                                onChange= {this.handleUsernameChange}
-                        />
-                    </div>
-                    <div>
-                     <label>My Order: </label>
-                        <textarea   id= "msg"
-                        value= {this.state.message} 
-                                    onChange= {this.handleMessageChange} 
-                        />
+                    <div className= "input-group">
+                        <input type="text" className="form-control" placeholder= "Write message..." value= {this.state.message} 
+                                    onChange= {this.handleMessageChange}/>
                     </div>
                 <input type="submit" value="Submit" />
             </form>

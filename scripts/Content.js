@@ -3,6 +3,7 @@ import { Socket } from './Socket';
 import { Chat } from './Chat';
 
 
+
 export class Content extends React.Component {
     constructor(props) {
         super(props);
@@ -42,45 +43,34 @@ export class Content extends React.Component {
         return (
             <html>
             <body>
-                <div style={{ backgroundColor: "yellow", border: "22px solid blue"}}>
-                    <h1> Truck Dash </h1>
-                    <h2> Food Truck Menu </h2>
-                    <ul class="columns" data-columns="2">
-                        <li>Fries</li>
-                        <li>Sweet Potatoe Fries</li>
-                        <li>Cheese Burger</li>
-                        <li>Hot Dog</li>
-                        <li>Impossible Burger</li>
-                        <li>Bottled Water</li>
-                        <li>Soft Drink Can</li>
-                        <li>Ice Tea/ Half & Half</li>
-                    </ul>
-                    <div>
-                    {listItems}
-                    </div>
-               
-               
+                <div className="rcontainer">
                 
-
+                    <div className="container">
+                    
+                        <div className="chat-page">
+                    
+                        <div className="msg-inbox">
+                            <div className="chats">
+                                <div className="msg-page">
+                                <div className="received-msg">
+                                <p>"Welcome to Truck Dash! Here are some helpful tips:"</p>
+                                <p>"Type: '!! Begin' to start your ordering process. If you need help at anytime type '!! help' "</p>
+                                <div className="received-msg-inbox">
+                                {listItems}
+                                        
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                        </div>
+                    </div>
                 </div>
-                <div style={{ backgroundColor: "white", border: "22px black"}}>
-                <Chat />
+                <div className="msg-bottom">
+                    <div> <Chat /> </div>
+                </div>
                 </div>
             </body>
             </html>
         );
     }
 }
-
-//     render() {
-//         return (
-//             <div>
-//                 <h1>Hello from React! testing</h1>
-//                 <div>
-//                     Data: {this.state.data}
-//                 </div>
-//             </div>
-//         );
-//     }
-// }
-//                    <ul class="columns" data-columns="2">
