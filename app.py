@@ -41,8 +41,8 @@ def on_connect():
     
 @socketio.on('disconnect')
 def on_disconnect():
-    models.Message.query.delete()
-    models.db.session.commit()
+    # models.Message.query.delete()
+    # models.db.session.commit()
     print('Someone disconnected!')
     flask_socketio.emit('update', {
         'data': 'Disconnected'
