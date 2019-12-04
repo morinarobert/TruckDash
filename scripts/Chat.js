@@ -24,7 +24,7 @@ export class Chat extends React.Component {
     
     handleMessageChange(event){
         this.setState({message: event.target.value});
-        document.getElementById('msg').value = "";
+        document.getElementById().value = "";
     }
     
     handleChange(event){
