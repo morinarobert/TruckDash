@@ -4,13 +4,12 @@ import flask_sqlalchemy, app, os
 
 #os.environ['DATABASE_URL'] = 'postgresql://mkm003:mimcd4@localhost/postgres'
 # app.app = app module app variable
-app.app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://mkm:123@localhost/postgres'
-os.getenv('DATABASE_URL')
+app.app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 db = flask_sqlalchemy.SQLAlchemy(app.app)
 
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)  # key
-    text = db.Column(db.String(120))
+    text = db.Column(db.String(250))
     #username = db.Column(db.String(25))
     
     def __init__(self, t):

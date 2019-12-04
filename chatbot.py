@@ -19,18 +19,17 @@ class Chatbot():
         elif message == '!! Y':
             response = 'Your order is now sumbitted! Your order will be ready in 30 seconds. To view the status of your order type: !! status'
         elif message == '!! 1':
-            response = 'District Barbeque: ' 'PLEASE CHOOSE FOOD OPTIONS FROM THE MENU: (1) Barbecue Chicken (2) Sliced Brisket Plate (3) Smoked BBQ Potato'
-        elif message == '!! 5':
-            response = 'Capital Chicken and Waffles: ' 'PLEASE CHOOSE FOOD OPTIONS FROM THE MENU' "\n" "\n" 'Boat Combo' "\n" 'Meal Combo' 
-            "\n" 'Chicken and Fries' "\n" 'Banana Pudding' "\n" 'Chicken Sandwich Meal' "\n" '.....'
+            response = 'District Barbeque: PLEASE CHOOSE FOOD OPTIONS FROM THE MENU: (a) Barbecue Chicken (b) Sliced Brisket Plate'
+        elif message == '!! cancel':
+            response = 'order canceled', models.Message.query.delete() 
         elif message == '!! status':
             response = 'Here is your order status: COMPLETED'
         elif message == '!! order':
             response = 'Here is your order: Barbeque Chicken -- DISTRICT BARBEQUE'
         elif message == '!! Submit':
             repsponse = 'Your order is now sumbitted!!'
-        elif message == '!! Cancel':
-            response = 'Your order is now canceled :('
+        elif message == '!! 6':
+            response = models.db.session.commit()
         elif message == '!! View Order Status':
             chatbot_responses=['Placing order', 'Prepping Food', 'Food Ready for pickup!']
             chatbot_message = chatbot_responses[random.randint(0, len(chatbot_responses))]
